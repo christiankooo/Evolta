@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Evolta Energy — Engineered Solar &amp; Hybrid Energy Systems | Haiti</title>
+<meta name="description" content="Evolta Energy delivers turnkey solar and hybrid energy systems for residential, commercial, and industrial markets in Haiti. Over 20 years of engineering-driven experience, built for predictability and long-term performance." />
+<link rel="icon" type="image/svg+xml" href="assets/logo/evolta-mark.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=IBM+Plex+Mono:wght@400;500;600&family=Inter:wght@400;450;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --navy:#1346a6;
+    --navy-ink:#0c2566;
+    --navy-900:#081a3d;
+    --orange:#ef3d23;
+    --orange-2:#d62f17;
+    --gold:#febe1d;
+    --ink:#192234;
+    --muted:#5f6678;
+    --muted-2:#8a909e;
+    --paper:#eef1f6;
+    --paper-2:#e2e7ef;
+    --line:#d4dae5;          /* hairline on paper */
+    --line-w:#e6eaf1;        /* hairline on white */
+    --line-d:rgba(255,255,255,.16); /* hairline on dark */
+    --maxw:1200px;
+    --r:3px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:"Inter",system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+    color:var(--ink);background:var(--paper);line-height:1.62;font-size:17px;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,h4{font-family:"Fraunces",Georgia,serif;font-optical-sizing:auto;color:var(--navy-ink);font-weight:500;line-height:1.08;letter-spacing:-.012em}
+  a{color:inherit;text-decoration:none}
+  img{display:block;max-width:100%}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px}
+
+  /* shared bits */
+  .kicker{font-family:"IBM Plex Mono",monospace;font-size:12px;font-weight:500;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--orange);display:inline-flex;align-items:center;gap:13px;margin-bottom:22px}
+  .kicker::before{content:"";width:26px;height:1px;background:var(--orange);display:inline-block}
+  .kicker.on-dark{color:var(--gold)}
+  .kicker.on-dark::before{background:var(--gold)}
+  .idx{font-family:"IBM Plex Mono",monospace;font-size:12px;letter-spacing:.14em;color:var(--muted-2);font-weight:500}
+
+  .btn{display:inline-flex;align-items:center;gap:10px;font-family:"Inter",sans-serif;font-weight:600;font-size:14px;
+    letter-spacing:.01em;padding:15px 26px;border-radius:var(--r);transition:.2s ease;cursor:pointer;border:1px solid transparent}
+  .btn .ar{transition:transform .2s ease}
+  .btn:hover .ar{transform:translateX(3px)}
+  .btn-orange{background:var(--orange);color:#fff}
+  .btn-orange:hover{background:var(--orange-2)}
+  .btn-navy{background:var(--navy);color:#fff}
+  .btn-navy:hover{background:var(--navy-ink)}
+  .btn-ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.45)}
+  .btn-ghost:hover{background:rgba(255,255,255,.1);border-color:#fff}
+  .btn-line{background:transparent;color:var(--navy-ink);border-color:var(--line)}
+  .btn-line:hover{border-color:var(--navy);color:var(--navy)}
+
+  section{padding:116px 0}
+  .shead{max-width:680px;margin-bottom:60px}
+  .shead h2{font-size:clamp(2rem,3.8vw,3rem)}
+  .shead p{font-size:1.1rem;color:var(--muted);margin-top:20px;max-width:600px;font-weight:450}
+
+  /* ---------- Header ---------- */
+  header{position:fixed;top:0;left:0;right:0;z-index:50;transition:.3s ease;padding:22px 0}
+  header.solid{background:rgba(238,241,246,.93);backdrop-filter:blur(10px);box-shadow:0 1px 0 var(--line);padding:14px 0}
+  .nav{display:flex;align-items:center;justify-content:space-between;gap:24px}
+  .brand{display:flex;align-items:center;height:40px}
+  .brand img{height:32px;width:auto}
+  .nav-links{display:flex;align-items:center;gap:34px}
+  .nav-links a{font-size:14px;font-weight:500;color:#fff;letter-spacing:.01em;opacity:.9;transition:.2s;position:relative}
+  .nav-links a::after{content:"";position:absolute;left:0;right:100%;bottom:-5px;height:1px;background:var(--orange);transition:right .25s ease}
+  .nav-links a:hover::after{right:0}
+  header.solid .nav-links a{color:var(--ink)}
+  .nav-links a:hover{opacity:1}
+  .logo-color{display:none}
+  header.solid .logo-white{display:none}
+  header.solid .logo-color{display:block}
+  .nav-cta{display:flex;align-items:center;gap:16px}
+  .menu-toggle{display:none;background:none;border:0;cursor:pointer;flex-direction:column;gap:5px;padding:6px}
+  .menu-toggle span{width:24px;height:1.5px;background:#fff;display:block;transition:.2s}
+  header.solid .menu-toggle span{background:var(--ink)}
+
+  /* ---------- Hero ---------- */
+  .hero{position:relative;min-height:100vh;display:flex;align-items:center;color:#fff;overflow:hidden}
+  .hero-bg{position:absolute;inset:0;z-index:0}
+  .hero-bg img{width:100%;height:100%;object-fit:cover}
+  .hero-bg::after{content:"";position:absolute;inset:0;
+    background:linear-gradient(100deg,rgba(9,28,82,.93) 0%,rgba(16,55,140,.8) 48%,rgba(19,70,166,.42) 100%)}
+  .hero-inner{position:relative;z-index:2;padding:140px 0 96px;max-width:820px}
+  .hero .kicker{color:var(--gold)}
+  .hero .kicker::before{background:var(--gold)}
+  .hero h1{font-size:clamp(2.6rem,5.6vw,4.4rem);color:#fff;font-weight:500;letter-spacing:-.02em}
+  .hero h1 em{font-style:italic;font-weight:400;color:#fff}
+  .hero p.lead{font-family:"Inter",sans-serif;font-size:clamp(1.05rem,1.5vw,1.24rem);color:rgba(255,255,255,.84);
+    max-width:560px;margin:28px 0 38px;font-weight:450;line-height:1.62}
+  .hero-actions{display:flex;gap:14px;flex-wrap:wrap}
+  .scroll-stats{position:absolute;bottom:0;left:0;right:0;z-index:2;border-top:1px solid rgba(255,255,255,.18)}
+  .scroll-stats .wrap{display:grid;grid-template-columns:repeat(4,1fr)}
+  .sstat{padding:26px 30px 28px;border-right:1px solid rgba(255,255,255,.14)}
+  .sstat:last-child{border-right:0}
+  .sstat b{font-family:"Fraunces",serif;font-weight:500;font-size:2rem;color:#fff;display:block;line-height:1}
+  .sstat b sup{font-family:"IBM Plex Mono",monospace;font-size:.9rem;color:var(--gold);top:-.7em}
+  .sstat span{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.08em;color:rgba(255,255,255,.6);
+    text-transform:uppercase;margin-top:9px;display:block}
+
+  /* ---------- About ---------- */
+  .about{background:var(--paper)}
+  .about-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:72px;align-items:start}
+  .about-copy p{color:var(--muted);margin-bottom:20px;font-weight:450}
+  .about-copy p strong{color:var(--ink);font-weight:600}
+  .about-copy h2{font-size:clamp(1.9rem,3.4vw,2.7rem);margin-bottom:26px}
+  .pred{background:var(--navy-ink);border-radius:var(--r);padding:0;color:#fff;position:relative;overflow:hidden}
+  .pred-top{padding:34px 36px 26px;border-bottom:1px solid var(--line-d)}
+  .pred-top .lbl{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:14px}
+  .pred-top h3{color:#fff;font-size:1.7rem;font-weight:500}
+  .pred-top p{color:rgba(255,255,255,.66);font-size:14.5px;margin-top:12px;font-weight:450}
+  .pred ul{list-style:none}
+  .pred li{display:flex;align-items:center;gap:16px;padding:17px 36px;font-size:15px;color:rgba(255,255,255,.9);border-bottom:1px solid var(--line-d)}
+  .pred li:last-child{border-bottom:0}
+  .pred li .m{flex:none;width:7px;height:7px;background:var(--orange);border-radius:1px}
+
+  /* ---------- Deliver: 2 x 3 ---------- */
+  .deliver{background:#fff;border-top:1px solid var(--line-w)}
+  .deliver-top{display:grid;grid-template-columns:1.08fr .92fr;gap:72px;align-items:end;margin-bottom:64px}
+  .deliver-top h2{font-size:clamp(1.9rem,3.4vw,2.7rem)}
+  .deliver-top p{color:var(--muted);font-weight:450}
+  .pgrid{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line-w);border-left:1px solid var(--line-w)}
+  .pstep{padding:34px 40px 38px;border-right:1px solid var(--line-w);border-bottom:1px solid var(--line-w);display:flex;gap:24px;align-items:flex-start;transition:.2s}
+  .pstep:hover{background:var(--paper)}
+  .pstep .no{font-family:"IBM Plex Mono",monospace;font-size:14px;font-weight:500;color:var(--orange);padding-top:5px;min-width:34px}
+  .pstep h4{font-size:1.32rem;font-weight:500;margin-bottom:9px}
+  .pstep p{font-size:14.5px;color:var(--muted);font-weight:450;line-height:1.55}
+  .supply{margin-top:46px;max-width:780px;color:var(--muted);font-weight:450}
+  .supply strong{color:var(--ink);font-weight:600}
+
+  /* ---------- Solutions ---------- */
+  .solutions{background:var(--paper)}
+  .mgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+  .market{background:#fff;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column;transition:.25s}
+  .market:hover{border-color:var(--navy)}
+  .market .ph{aspect-ratio:16/11;overflow:hidden;position:relative}
+  .market .ph img{width:100%;height:100%;object-fit:cover;transition:.6s ease}
+  .market:hover .ph img{transform:scale(1.05)}
+  .market .ph .tag{position:absolute;left:0;bottom:0;background:var(--navy-ink);color:#fff;
+    font-family:"IBM Plex Mono",monospace;font-size:10.5px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;padding:7px 13px}
+  .market .body{padding:28px 28px 32px;display:flex;flex-direction:column;flex:1}
+  .market h3{font-size:1.45rem;font-weight:500;margin-bottom:12px;display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+  .market .pf{font-family:"IBM Plex Mono",monospace;font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--orange);border:1px solid var(--orange);padding:3px 7px;border-radius:2px;font-weight:500}
+  .market>.body>p{font-size:14.5px;color:var(--muted);margin-bottom:20px;font-weight:450}
+  .market ul{list-style:none;display:grid;gap:11px;margin-top:auto;border-top:1px solid var(--line-w);padding-top:20px}
+  .market li{font-size:14px;color:var(--ink);display:flex;gap:12px;align-items:flex-start;font-weight:450}
+  .market li::before{content:"—";color:var(--orange);font-weight:600}
+
+  /* ---------- Why (numbered editorial list) ---------- */
+  .why{background:var(--navy-ink);color:#fff}
+  .why .shead h2{color:#fff}
+  .why .shead p{color:rgba(255,255,255,.66)}
+  .why-grid{display:grid;grid-template-columns:1fr 1fr;column-gap:64px;border-top:1px solid var(--line-d)}
+  .wrow{display:flex;gap:26px;padding:34px 0;border-bottom:1px solid var(--line-d)}
+  .wrow .wn{font-family:"IBM Plex Mono",monospace;font-size:13px;color:var(--gold);font-weight:500;padding-top:8px;min-width:30px}
+  .wrow h3{color:#fff;font-size:1.42rem;font-weight:500;margin-bottom:11px}
+  .wrow p{font-size:14.5px;color:rgba(255,255,255,.66);font-weight:450;line-height:1.6}
+
+  /* ---------- Band ---------- */
+  .band{position:relative;color:#fff;padding:120px 0;overflow:hidden}
+  .band-bg{position:absolute;inset:0;z-index:0}
+  .band-bg img{width:100%;height:100%;object-fit:cover}
+  .band-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(9,28,82,.93),rgba(19,70,166,.74))}
+  .band .inner{position:relative;z-index:2;max-width:680px}
+  .band h2{color:#fff;font-size:clamp(1.8rem,3.4vw,2.6rem);font-weight:500}
+  .band p{color:rgba(255,255,255,.82);font-size:1.08rem;margin:22px 0 34px;font-weight:450}
+
+  /* ---------- Projects ---------- */
+  .projects{background:var(--paper)}
+  .gallery{display:grid;grid-template-columns:repeat(12,1fr);grid-auto-rows:228px;gap:18px}
+  .gitem{position:relative;border-radius:var(--r);overflow:hidden;cursor:pointer;background:var(--navy-ink)}
+  .gitem img{width:100%;height:100%;object-fit:cover;transition:.6s ease}
+  .gitem:hover img{transform:scale(1.05)}
+  .gitem::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(8,19,38,.82) 0%,rgba(8,19,38,0) 52%)}
+  .gcap{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:22px 22px}
+  .gcap .m{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold);font-weight:500}
+  .gcap .t{font-family:"Fraunces",serif;font-weight:500;color:#fff;font-size:1.12rem;line-height:1.18;margin-top:6px}
+  .g-tall{grid-column:span 6;grid-row:span 2}
+  .g-half{grid-column:span 6}
+  .g-third{grid-column:span 4}
+
+  .lightbox{position:fixed;inset:0;z-index:200;background:rgba(8,16,32,.93);display:none;align-items:center;justify-content:center;padding:30px}
+  .lightbox.open{display:flex}
+  .lightbox img{max-width:92vw;max-height:88vh;border-radius:var(--r);box-shadow:0 30px 80px rgba(0,0,0,.6)}
+  .lightbox .close{position:absolute;top:24px;right:30px;color:#fff;font-size:32px;cursor:pointer;line-height:1;opacity:.8;font-family:"IBM Plex Mono",monospace}
+  .lightbox .close:hover{opacity:1}
+
+  /* ---------- Contact ---------- */
+  .contact{background:#fff;border-top:1px solid var(--line-w)}
+  .contact-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:72px;align-items:start}
+  .cinfo .person{padding-bottom:26px;margin-bottom:10px;border-bottom:1px solid var(--line-w)}
+  .cinfo .person .nm{font-family:"Fraunces",serif;font-size:1.45rem;color:var(--navy-ink);font-weight:500}
+  .cinfo .person .ti{font-family:"IBM Plex Mono",monospace;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--orange);margin-top:6px}
+  .cinfo .row{display:grid;grid-template-columns:120px 1fr;gap:18px;padding:18px 0;border-bottom:1px solid var(--line-w);align-items:baseline}
+  .cinfo .row:last-child{border-bottom:0}
+  .cinfo .row .k{font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted-2)}
+  .cinfo .row .v{font-size:15.5px;color:var(--ink);font-weight:500}
+  .cinfo .row .v a:hover{color:var(--orange)}
+  form{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:36px}
+  form .frow{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  label{display:block;font-family:"IBM Plex Mono",monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:18px 0 8px}
+  input,select,textarea{width:100%;padding:13px 14px;border:1px solid var(--line);border-radius:var(--r);font-family:"Inter",sans-serif;font-size:15px;color:var(--ink);background:#fff;transition:.2s}
+  input::placeholder,textarea::placeholder{color:#9aa0ad}
+  input:focus,select:focus,textarea:focus{outline:none;border-color:var(--navy);box-shadow:0 0 0 3px rgba(20,63,144,.09)}
+  textarea{resize:vertical;min-height:108px}
+  form .btn{width:100%;justify-content:center;margin-top:24px}
+
+  /* ---------- Footer ---------- */
+  footer{background:var(--navy-ink);color:#fff;padding:72px 0 32px}
+  .foot-grid{display:grid;grid-template-columns:1.8fr 1fr 1.2fr;gap:48px;padding-bottom:44px;border-bottom:1px solid var(--line-d)}
+  .foot-brand img{height:32px;margin-bottom:22px}
+  .foot-brand p{color:rgba(255,255,255,.6);font-size:14px;max-width:300px;font-weight:450}
+  .foot-col h5{font-family:"IBM Plex Mono",monospace;font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:var(--gold);margin-bottom:20px;font-weight:500}
+  .foot-col a,.foot-col p{display:block;color:rgba(255,255,255,.66);font-size:14px;margin-bottom:12px;transition:.2s;font-weight:450}
+  .foot-col a:hover{color:#fff}
+  .foot-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:26px;flex-wrap:wrap;gap:12px}
+  .foot-bottom p{color:rgba(255,255,255,.45);font-size:12.5px;font-family:"IBM Plex Mono",monospace;letter-spacing:.04em}
+
+  .reveal{opacity:0;transform:translateY(16px);transition:.6s cubic-bezier(.16,.8,.3,1)}
+  .reveal.in{opacity:1;transform:none}
+
+  @media(max-width:1000px){
+    .about-grid,.deliver-top,.contact-grid{grid-template-columns:1fr;gap:44px}
+    .mgrid{grid-template-columns:1fr 1fr}
+    .mgrid .market:last-child{grid-column:1/-1}
+    .why-grid{grid-template-columns:1fr;column-gap:0}
+    .gallery{grid-auto-rows:200px}
+  }
+  @media(max-width:760px){
+    body{font-size:16px}
+    section{padding:80px 0}
+    .wrap{padding:0 22px}
+    .nav-links{position:fixed;inset:0 0 0 auto;width:80%;max-width:330px;background:var(--paper);flex-direction:column;
+      align-items:flex-start;justify-content:flex-start;gap:0;padding:96px 32px;transform:translateX(100%);transition:.3s;
+      box-shadow:-20px 0 50px rgba(0,0,0,.18);z-index:60}
+    .nav-links.open{transform:none}
+    .nav-links a{color:var(--ink);font-size:18px;font-family:"Fraunces",serif;width:100%;padding:16px 0;border-bottom:1px solid var(--line)}
+    .nav-links a::after{display:none}
+    .menu-toggle{display:flex;z-index:61}
+    .nav-cta .btn{display:none}
+    .scroll-stats{position:static;background:var(--navy-ink)}
+    .scroll-stats .wrap{grid-template-columns:1fr 1fr;padding:0}
+    .sstat{border-bottom:1px solid rgba(255,255,255,.14)}
+    .sstat:nth-child(2){border-right:0}
+    .hero{min-height:auto}
+    .hero-inner{padding:130px 0 56px}
+    .pgrid{grid-template-columns:1fr}
+    .mgrid{grid-template-columns:1fr}
+    .mgrid .market:last-child{grid-column:auto}
+    .gallery{grid-template-columns:1fr 1fr;grid-auto-rows:172px}
+    .g-tall,.g-half,.g-third{grid-column:span 2;grid-row:span 1}
+    .foot-grid{grid-template-columns:1fr 1fr;gap:34px}
+    .foot-brand{grid-column:1/-1}
+    form .frow{grid-template-columns:1fr}
+    .cinfo .row{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header id="header">
+  <div class="wrap nav">
+    <a href="#home" class="brand" aria-label="Evolta Energy home">
+      <img class="logo-white" src="assets/logo/evolta-white.svg" alt="Evolta Energy" />
+      <img class="logo-color" src="assets/logo/evolta-color.svg" alt="Evolta Energy" />
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#about">About</a>
+      <a href="#deliver">What We Deliver</a>
+      <a href="#solutions">Solutions</a>
+      <a href="#why">Why Evolta</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="#contact" class="btn btn-orange">Request a Consultation</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-bg"><img src="assets/img/hero.jpg" alt="Aerial view of a large-scale commercial rooftop solar installation by Evolta Energy in Haiti" /></div>
+  <div class="wrap hero-inner">
+    <span class="kicker">Solar &amp; Hybrid Energy Systems — Haiti</span>
+    <h1>Engineered for performance.<br /><em>Structured for the long term.</em></h1>
+    <p class="lead">Evolta Energy delivers turnkey solar and hybrid energy systems for residential, commercial, and industrial clients — engineered around reliability, service discipline, and lifecycle performance, not lowest upfront price.</p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn btn-orange">Request a Consultation <span class="ar">→</span></a>
+      <a href="#projects" class="btn btn-ghost">View Installations</a>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="wrap about-grid">
+    <div class="about-copy reveal">
+      <span class="kicker">01 — Who We Are</span>
+      <h2>A mature infrastructure operator for a volatile energy market.</h2>
+      <p>Evolta Energy is a Haiti-based energy solutions company built on over <strong>two decades of industry experience</strong> and a proven track record of energy system installations across the country. Our leadership has been directly involved in the engineering, deployment, and operational management of energy infrastructure in complex and demanding environments.</p>
+      <p>Haiti's energy landscape is defined by unstable grid supply, heavy reliance on diesel generation, and volatile fuel pricing. Our clients are not simply buying solar panels — they are seeking <strong>predictable energy costs, reduced fuel dependency, and a trusted long-term partner.</strong></p>
+      <p>Evolta was founded to provide reliable, engineered, and service-driven solutions in a market where long-term accountability and execution quality are too often inconsistent. We compete on reliability, predictability, and total cost of energy.</p>
+    </div>
+    <div class="pred reveal">
+      <div class="pred-top">
+        <span class="lbl">The Emotional Anchor</span>
+        <h3>Predictability builds trust.</h3>
+        <p>In a volatile energy environment, our model is structured to deliver the one thing others cannot — consistency you can plan around.</p>
+      </div>
+      <ul>
+        <li><span class="m"></span> Predictable system performance</li>
+        <li><span class="m"></span> Predictable energy cost optimization</li>
+        <li><span class="m"></span> Predictable long-term service</li>
+        <li><span class="m"></span> Predictable operational reliability</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT WE DELIVER -->
+<section class="deliver" id="deliver">
+  <div class="wrap">
+    <div class="deliver-top">
+      <div class="reveal">
+        <span class="kicker">02 — What We Deliver</span>
+        <h2>Systems that are engineered, not assembled.</h2>
+      </div>
+      <p class="reveal">Every Evolta project is a structured, turnkey delivery. We remain accountable for system performance from first analysis through long-term service — never separating responsibility across multiple parties.</p>
+    </div>
+    <div class="pgrid reveal">
+      <div class="pstep"><div class="no">01</div><div><h4>Load Analysis</h4><p>Load profiling and consumption evaluation that ground every decision in real demand.</p></div></div>
+      <div class="pstep"><div class="no">02</div><div><h4>Financial &amp; Performance Modeling</h4><p>Realistic, field-tested projections of cost and output before a panel is ordered.</p></div></div>
+      <div class="pstep"><div class="no">03</div><div><h4>Engineering &amp; Architecture</h4><p>Engineering-driven system architecture with proper component sizing for the site.</p></div></div>
+      <div class="pstep"><div class="no">04</div><div><h4>Turnkey Installation</h4><p>Installation delivered to infrastructure-grade standards by our own teams.</p></div></div>
+      <div class="pstep"><div class="no">05</div><div><h4>Commissioning &amp; Validation</h4><p>Full system commissioning and validation before handover and operation.</p></div></div>
+      <div class="pstep"><div class="no">06</div><div><h4>Lifecycle Service</h4><p>Monitoring, preventative maintenance, and long-term performance oversight.</p></div></div>
+    </div>
+    <p class="supply reveal">Beyond turnkey systems, Evolta selectively supplies key components — inverters, battery systems, hybrid integration equipment, and monitoring — within a <strong>controlled technology ecosystem</strong>. We work with carefully selected global manufacturers and selectively rebrand OEM components to ensure quality control, compatibility, and service continuity. We are not a high-volume reseller; technology selection is deliberate and performance-driven.</p>
+  </div>
+</section>
+
+<!-- SOLUTIONS -->
+<section class="solutions" id="solutions">
+  <div class="wrap">
+    <div class="shead reveal">
+      <span class="kicker">03 — Solutions by Market</span>
+      <h2>One engineering discipline. Three markets.</h2>
+      <p>From standardized residential packages to multi-megawatt hybrid systems, every solution is adapted to Haiti's energy realities.</p>
+    </div>
+    <div class="mgrid">
+      <div class="market reveal">
+        <div class="ph"><img src="assets/img/proj-residential-01.jpg" alt="Residential rooftop solar installation overlooking the city" /><span class="tag">Residential</span></div>
+        <div class="body">
+          <h3>Residential</h3>
+          <p>High-quality, standardized packages built for durability and backed by a service-driven ownership model.</p>
+          <ul>
+            <li>Durability-focused, standardized design</li>
+            <li>Monitoring included as standard</li>
+            <li>Service-driven ownership experience</li>
+          </ul>
+        </div>
+      </div>
+      <div class="market reveal">
+        <div class="ph"><img src="assets/img/proj-commercial-01.jpg" alt="Commercial multi-story building rooftop solar installation" /><span class="tag">Commercial &amp; C&amp;I</span></div>
+        <div class="body">
+          <h3>Commercial &amp; C&amp;I <span class="pf">Primary Focus</span></h3>
+          <p>Integrated energy and financial modeling with hybrid-ready architecture and generator optimization built in.</p>
+          <ul>
+            <li>Integrated energy &amp; financial modeling</li>
+            <li>Hybrid-ready system architecture</li>
+            <li>Generator optimization &amp; service agreements</li>
+          </ul>
+        </div>
+      </div>
+      <div class="market reveal">
+        <div class="ph"><img src="assets/img/proj-industrial-01.jpg" alt="Large industrial rooftop solar array on a manufacturing facility" /><span class="tag">Industrial</span></div>
+        <div class="body">
+          <h3>Industrial</h3>
+          <p>Flagship, infrastructure-grade engineering for multi-megawatt loads and complex system integration.</p>
+          <ul>
+            <li>Large-scale hybrid energy systems</li>
+            <li>Multi-MW load environments</li>
+            <li>Infrastructure-grade engineering</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY -->
+<section class="why" id="why">
+  <div class="wrap">
+    <div class="shead reveal">
+      <span class="kicker on-dark">04 — Why Evolta</span>
+      <h2>Energy infrastructure is a long-term decision.</h2>
+      <p>We design and deliver with the understanding that reliability and lifecycle performance matter more than initial installation cost.</p>
+    </div>
+    <div class="why-grid">
+      <div class="wrow reveal"><div class="wn">01</div><div><h3>20 years of proven experience</h3><p>Built on over two decades of installations in Haiti. We understand grid instability, diesel integration, and equipment durability in tropical conditions.</p></div></div>
+      <div class="wrow reveal"><div class="wn">02</div><div><h3>Engineering-driven approach</h3><p>Every project begins with analysis — load profiling, system modeling, financial projections. We prioritize optimal architecture over volume or speed.</p></div></div>
+      <div class="wrow reveal"><div class="wn">03</div><div><h3>Turnkey accountability</h3><p>Design, procurement, installation, commissioning, monitoring, and service under one roof. We do not separate responsibility — we own performance.</p></div></div>
+      <div class="wrow reveal"><div class="wn">04</div><div><h3>Controlled technology ecosystem</h3><p>Carefully selected global manufacturers and selective OEM rebranding ensure quality control, compatibility, and standardization across projects.</p></div></div>
+      <div class="wrow reveal"><div class="wn">05</div><div><h3>Lifecycle service commitment</h3><p>Installation is the beginning, not the end. Monitoring, preventative maintenance, and performance oversight keep systems predictable.</p></div></div>
+      <div class="wrow reveal"><div class="wn">06</div><div><h3>Focus on total cost of energy</h3><p>We don't compete on lowest upfront price. We compete on long-term performance, reduced diesel dependency, and measurable cost predictability.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- BAND -->
+<section class="band">
+  <div class="band-bg"><img src="assets/img/band.jpg" alt="Industrial solar rooftop installation" /></div>
+  <div class="wrap"><div class="inner reveal">
+    <span class="kicker on-dark">Building Toward the Future</span>
+    <h2>A disciplined, scalable energy platform for Haiti and beyond.</h2>
+    <p>Today our focus is EPC excellence and lifecycle service. In future phases, Evolta will expand into structured financing and energy-as-a-service — lease-to-own contracts and consumption-based billing — offering clients flexible ownership options. Growth will be disciplined and data-driven.</p>
+    <a href="#contact" class="btn btn-orange">Start a Conversation <span class="ar">→</span></a>
+  </div></div>
+</section>
+
+<!-- PROJECTS -->
+<section class="projects" id="projects">
+  <div class="wrap">
+    <div class="shead reveal">
+      <span class="kicker">05 — Selected Installations</span>
+      <h2>A proven track record, on rooftops across the country.</h2>
+      <p>A selection of commercial, industrial, and residential systems engineered and installed by Evolta. Select any image to enlarge.</p>
+    </div>
+    <div class="gallery">
+      <div class="gitem g-tall reveal" data-full="assets/img/proj-industrial-01.jpg">
+        <img src="assets/img/proj-industrial-01.jpg" alt="Industrial manufacturing facility rooftop solar array" />
+        <div class="gcap"><div class="m">Industrial</div><div class="t">Manufacturing Facility — Rooftop Array</div></div>
+      </div>
+      <div class="gitem g-half reveal" data-full="assets/img/proj-plant-01.jpg">
+        <img src="assets/img/proj-plant-01.jpg" alt="Manufacturing plant large rooftop solar installation" />
+        <div class="gcap"><div class="m">Industrial</div><div class="t">Manufacturing Plant Installation</div></div>
+      </div>
+      <div class="gitem g-third reveal" data-full="assets/img/proj-commercial-02.jpg">
+        <img src="assets/img/proj-commercial-02.jpg" alt="Rooftop solar on a commercial building" />
+        <div class="gcap"><div class="m">Commercial</div><div class="t">Rooftop System</div></div>
+      </div>
+      <div class="gitem g-third reveal" data-full="assets/img/proj-residential-01.jpg">
+        <img src="assets/img/proj-residential-01.jpg" alt="Residential hillside rooftop solar with city view" />
+        <div class="gcap"><div class="m">Residential</div><div class="t">Hillside Estate</div></div>
+      </div>
+      <div class="gitem g-third reveal" data-full="assets/img/proj-industrial-02.jpg">
+        <img src="assets/img/proj-industrial-02.jpg" alt="Overhead view of dense industrial solar panel rows" />
+        <div class="gcap"><div class="m">Industrial</div><div class="t">High-Density Array</div></div>
+      </div>
+      <div class="gitem g-half reveal" data-full="assets/img/proj-commercial-01.jpg">
+        <img src="assets/img/proj-commercial-01.jpg" alt="Multi-story commercial building with rooftop solar" />
+        <div class="gcap"><div class="m">Commercial &amp; C&amp;I</div><div class="t">Multi-Story Commercial Building</div></div>
+      </div>
+      <div class="gitem g-half reveal" data-full="assets/img/proj-plant-02.jpg">
+        <img src="assets/img/proj-plant-02.jpg" alt="Angled overhead view of industrial rooftop solar array" />
+        <div class="gcap"><div class="m">Industrial</div><div class="t">Plant Rooftop — Full Coverage</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="shead reveal">
+      <span class="kicker">06 — Get in Touch</span>
+      <h2>Let's model your energy future.</h2>
+      <p>Tell us about your site and consumption profile. We'll start where every Evolta project starts — with analysis.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="cinfo reveal">
+        <div class="person">
+          <div class="nm">Bernhard Celestin</div>
+          <div class="ti">Directeur Général</div>
+        </div>
+        <div class="row"><div class="k">Phone</div><div class="v"><a href="tel:+50937026294">+(509) 3702 6294</a></div></div>
+        <div class="row"><div class="k">Email</div><div class="v"><a href="mailto:bernhard@evolta-energy.com">bernhard@evolta-energy.com</a></div></div>
+        <div class="row"><div class="k">Web</div><div class="v"><a href="https://evolta-energy.com" target="_blank" rel="noopener">evolta-energy.com</a></div></div>
+        <div class="row"><div class="k">Office</div><div class="v">#7 Pelerin 1, rte de Kenscoff<br />Pétion-Ville, Haiti</div></div>
+        <div class="row"><div class="k">Markets</div><div class="v">Haiti · Dominican Republic · Caribbean</div></div>
+      </div>
+      <form class="reveal" onsubmit="event.preventDefault(); this.reset(); document.getElementById('formMsg').style.display='block';">
+        <div class="frow">
+          <div><label for="name">Full Name</label><input id="name" type="text" placeholder="Your name" required /></div>
+          <div><label for="company">Company</label><input id="company" type="text" placeholder="Organization" /></div>
+        </div>
+        <div class="frow">
+          <div><label for="email">Email</label><input id="email" type="email" placeholder="you@company.com" required /></div>
+          <div><label for="segment">Segment</label>
+            <select id="segment">
+              <option>Commercial &amp; C&amp;I</option>
+              <option>Industrial</option>
+              <option>Residential</option>
+              <option>Component Supply</option>
+            </select>
+          </div>
+        </div>
+        <label for="msg">Project Details</label>
+        <textarea id="msg" placeholder="Tell us about your site, current energy costs, and goals."></textarea>
+        <button type="submit" class="btn btn-navy">Request a Consultation <span class="ar">→</span></button>
+        <p id="formMsg" style="display:none;margin-top:14px;color:var(--navy);font-weight:600;font-size:14px;">Thank you — your request has been noted. (Connect this form to email or a CRM to receive submissions.)</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <img src="assets/logo/evolta-white.svg" alt="Evolta Energy" />
+        <p>Engineered solar and hybrid energy systems for Haiti's residential, commercial, and industrial markets. Structured for the long term.</p>
+      </div>
+      <div class="foot-col">
+        <h5>Navigate</h5>
+        <a href="#about">About</a>
+        <a href="#deliver">What We Deliver</a>
+        <a href="#solutions">Solutions</a>
+        <a href="#why">Why Evolta</a>
+        <a href="#projects">Projects</a>
+      </div>
+      <div class="foot-col">
+        <h5>Contact</h5>
+        <a href="tel:+50937026294">+(509) 3702 6294</a>
+        <a href="mailto:bernhard@evolta-energy.com">bernhard@evolta-energy.com</a>
+        <p>#7 Pelerin 1, rte de Kenscoff<br />Pétion-Ville, Haiti</p>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <p>© <span id="yr"></span> Evolta Energy — All rights reserved.</p>
+      <p>Engineered for performance. Structured for the long term.</p>
+    </div>
+  </div>
+</footer>
+
+<div class="lightbox" id="lightbox"><span class="close" id="lbClose">&times;</span><img id="lbImg" src="" alt="Installation enlarged" /></div>
+
+<script>
+  const header=document.getElementById('header');
+  const onScroll=()=>header.classList.toggle('solid',window.scrollY>60);
+  onScroll(); window.addEventListener('scroll',onScroll,{passive:true});
+
+  const toggle=document.getElementById('menuToggle');
+  const links=document.getElementById('navLinks');
+  toggle.addEventListener('click',()=>links.classList.toggle('open'));
+  links.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>links.classList.remove('open')));
+
+  const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.1});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+  const lb=document.getElementById('lightbox'),lbImg=document.getElementById('lbImg');
+  document.querySelectorAll('.gitem').forEach(g=>g.addEventListener('click',()=>{lbImg.src=g.dataset.full;lb.classList.add('open');}));
+  const closeLb=()=>lb.classList.remove('open');
+  document.getElementById('lbClose').addEventListener('click',closeLb);
+  lb.addEventListener('click',e=>{if(e.target===lb)closeLb();});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLb();});
+
+  document.getElementById('yr').textContent=new Date().getFullYear();
+</script>
+</body>
+</html>
